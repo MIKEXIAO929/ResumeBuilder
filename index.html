@@ -1,263 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume Builder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
 
-  <!-- Bootstrap 5 CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        @media print {
+            #btnBack {
+                display: none;
+            }
+
+            #btnPrint {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body class="bg-light">
 
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
+    <nav class="navbar navbar-light bg-white border-bottom">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Resume Builder</span>
 
-        <!-- Page Title -->
-        <div class="card shadow-sm mb-4">
-          <div class="card-body">
-            <h1 class="h3 mb-0">Resume Builder</h1>
-            <p class="text-muted mb-0">Build a tailored resume for your target job position.</p>
-          </div>
+            <button class="btn btn-outline-secondary btn-sm" id="btnLibraries" type="button">
+                Libraries Used
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mt-4 mb-4">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <h2 class="text-center mb-4">Build Your Resume</h2>
+            </div>
         </div>
 
-        <form>
+        <div id="divForm">
+            <div class="row g-3">
 
-          <!-- Target Job Position -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h2 class="h5 mb-4">Target Job Position</h2>
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Personal Information</h5>
+                            <hr>
 
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="jobTitle" class="form-label">Job Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="jobTitle"
-                    placeholder="e.g. IT Support Specialist"
-                  />
+                            <label class="form-label" for="txtFullName">Full Name</label>
+                            <input class="form-control mb-2" id="txtFullName" type="text">
+
+                            <label class="form-label" for="txtEmail">Email</label>
+                            <input class="form-control mb-2" id="txtEmail" type="email">
+
+                            <label class="form-label" for="txtPhone">Phone</label>
+                            <input class="form-control mb-2" id="txtPhone" type="text">
+
+                            <label class="form-label" for="txtLocation">Location</label>
+                            <input class="form-control mb-2" id="txtLocation" type="text">
+
+                            <label class="form-label" for="txtSummary">Professional Summary</label>
+                            <textarea class="form-control mb-2" id="txtSummary" rows="4"></textarea>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-md-6">
-                  <label for="companyName" class="form-label">Company Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="companyName"
-                    placeholder="e.g. XYZ Company"
-                  />
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Gemini API Key</h5>
+                            <hr>
+
+                            <label class="form-label" for="txtApiKey">Gemini API Key</label>
+                            <input class="form-control mb-2" id="txtApiKey" type="password">
+
+                            <button class="btn btn-secondary col-12 mt-2" id="btnSaveKey" type="button">
+                                Save API Key
+                            </button>
+
+                            <p class="text-muted mt-2 mb-0">
+                                The key is only used for local testing and is not shown on the resume.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Target Job</h5>
+                            <hr>
+
+                            <label class="form-label" for="txtTargetJobTitle">Target Job Title</label>
+                            <input class="form-control mb-2" id="txtTargetJobTitle" type="text">
+
+                            <label class="form-label" for="txtTargetCompany">Target Company</label>
+                            <input class="form-control mb-2" id="txtTargetCompany" type="text">
+
+                            <label class="form-label" for="txtTargetDescription">Target Job Description</label>
+                            <textarea class="form-control mb-2" id="txtTargetDescription" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Education</h5>
+                            <hr>
+
+                            <label class="form-label" for="txtSchool">School</label>
+                            <input class="form-control mb-2" id="txtSchool" type="text">
+
+                            <label class="form-label" for="txtDegree">Degree</label>
+                            <input class="form-control mb-2" id="txtDegree" type="text">
+
+                            <label class="form-label" for="txtGradDate">Graduation Date</label>
+                            <input class="form-control mb-2" id="txtGradDate" type="text">
+
+                            <label class="form-label" for="txtEducationDetails">Extra Education Details</label>
+                            <input class="form-control mb-2" id="txtEducationDetails" type="text">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Job Experience</h5>
+                            <hr>
+
+                            <label class="form-label" for="txtJobTitle">Job Title</label>
+                            <input class="form-control mb-2" id="txtJobTitle" type="text">
+
+                            <label class="form-label" for="txtCompany">Company</label>
+                            <input class="form-control mb-2" id="txtCompany" type="text">
+
+                            <label class="form-label" for="txtJobDates">Dates</label>
+                            <input class="form-control mb-2" id="txtJobDates" type="text">
+
+                            <label class="form-label" for="txtJobDetails">Responsibilities</label>
+                            <textarea class="form-control mb-2" id="txtJobDetails" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Skills and Other Details</h5>
+                            <hr>
+
+                            <label class="form-label" for="txtSkills">Skills</label>
+                            <textarea class="form-control mb-2" id="txtSkills" rows="3"></textarea>
+
+                            <label class="form-label" for="txtCertifications">Certifications</label>
+                            <textarea class="form-control mb-2" id="txtCertifications" rows="3"></textarea>
+
+                            <label class="form-label" for="txtAwards">Awards</label>
+                            <textarea class="form-control mb-2" id="txtAwards" rows="3"></textarea>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-12">
-                  <label for="jobDescription" class="form-label">Job Description / Responsibilities</label>
-                  <textarea
-                    class="form-control"
-                    id="jobDescription"
-                    rows="5"
-                    placeholder="Paste the job description here..."
-                  ></textarea>
+                    <button class="btn btn-dark col-12 mt-2" id="btnCreateResume" type="button">
+                        Create Resume Preview
+                    </button>
+
+                    <button class="btn btn-secondary col-12 mt-2" id="btnClear" type="button">
+                        Clear Form
+                    </button>
                 </div>
 
-                <div class="col-12 text-end">
-                  <button type="button" class="btn btn-outline-primary">Save Target Job</button>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
 
-          <!-- About User -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h2 class="h5 mb-4">About User</h2>
+        <div id="divPreview" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9">
 
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="fullName" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="fullName" />
+                    <button class="btn btn-secondary mb-2" id="btnBack" type="button">
+                        Back to Form
+                    </button>
+
+                    <button class="btn btn-dark mb-2" id="btnPrint" type="button">
+                        Save as PDF
+                    </button>
+
+                    <div class="card mb-3" id="divTargetJobPreview">
+                        <div class="card-body">
+                            <h5>Target Job</h5>
+                            <hr>
+
+                            <p class="mb-0">
+                                <strong id="lblTargetJobTitle">Target Job Title</strong>
+                            </p>
+
+                            <p id="lblTargetCompany" class="mb-1">
+                                Target Company
+                            </p>
+
+                            <p id="lblTargetDescription" class="mb-0">
+                                Target job description will show here.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="divResume">
+                        <div class="card-body">
+                            <h2 id="lblName">Your Name</h2>
+                            <p id="lblContact" class="border-bottom pb-2">Email | Phone | Location</p>
+
+                            <h5>Professional Summary</h5>
+                            <p id="lblSummary">Your summary will show here.</p>
+
+                            <h5 class="border-top pt-2">Education</h5>
+                            <p class="mb-0"><strong id="lblSchool">School</strong></p>
+                            <p id="lblDegree" class="mb-0">Degree | Graduation Date</p>
+                            <p id="lblEducationDetails"></p>
+
+                            <h5 class="border-top pt-2">Experience</h5>
+                            <p class="mb-0"><strong id="lblJobTitle">Job Title</strong></p>
+                            <p id="lblCompanyDates">Company | Dates</p>
+                            <ul id="lstJobDetails"></ul>
+
+                            <h5 class="border-top pt-2">Skills</h5>
+                            <p id="lblSkills">Skills will show here.</p>
+
+                            <h5 class="border-top pt-2">Certifications</h5>
+                            <p id="lblCertifications">Certifications will show here.</p>
+
+                            <h5 class="border-top pt-2">Awards</h5>
+                            <p id="lblAwards">Awards will show here.</p>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3 mb-5" id="divGeminiResult">
+                        <div class="card-body">
+                            <h5>Gemini Generated Resume Draft and Suggestions</h5>
+                            <hr>
+
+                            <div class="alert alert-success mb-0" id="lblGeminiResult">
+                                Gemini result will show here.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-                <div class="col-md-6">
-                  <label for="phoneNumber" class="form-label">Phone Number</label>
-                  <input type="tel" class="form-control" id="phoneNumber" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="emailAddress" class="form-label">Email Address</label>
-                  <input type="email" class="form-control" id="emailAddress" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="city" class="form-label">City</label>
-                  <input type="text" class="form-control" id="city" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="state" class="form-label">State</label>
-                  <input type="text" class="form-control" id="state" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="linkedinUrl" class="form-label">LinkedIn URL</label>
-                  <input type="url" class="form-control" id="linkedinUrl" placeholder="https://linkedin.com/in/yourname" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="githubUrl" class="form-label">GitHub URL</label>
-                  <input type="url" class="form-control" id="githubUrl" placeholder="https://github.com/yourname" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="portfolioUrl" class="form-label">Portfolio URL</label>
-                  <input type="url" class="form-control" id="portfolioUrl" placeholder="https://yourportfolio.com" />
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
 
-          <!-- Professional Summary -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h2 class="h5 mb-4">Professional Summary</h2>
-
-              <div class="row g-3">
-                <div class="col-12">
-                  <label for="professionalSummary" class="form-label">Summary</label>
-                  <textarea
-                    class="form-control"
-                    id="professionalSummary"
-                    rows="5"
-                    placeholder="Write a short professional summary about yourself..."
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Work Experience -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="h5 mb-0">Work Experience</h2>
-                <button type="button" class="btn btn-outline-secondary btn-sm">Add More</button>
-              </div>
-
-              <!-- Experience 1 -->
-              <div class="border rounded p-3 mb-3">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="jobTitle1" class="form-label">Job Title</label>
-                    <input type="text" class="form-control" id="jobTitle1" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="employer1" class="form-label">Company / Employer</label>
-                    <input type="text" class="form-control" id="employer1" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="workCity1" class="form-label">City</label>
-                    <input type="text" class="form-control" id="workCity1" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="workState1" class="form-label">State</label>
-                    <input type="text" class="form-control" id="workState1" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="startDate1" class="form-label">Start Date</label>
-                    <input type="month" class="form-control" id="startDate1" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="endDate1" class="form-label">End Date</label>
-                    <input type="month" class="form-control" id="endDate1" />
-                  </div>
-
-                  <div class="col-12">
-                    <label for="responsibilities1" class="form-label">Responsibilities / Achievements</label>
-                    <textarea
-                      class="form-control"
-                      id="responsibilities1"
-                      rows="4"
-                      placeholder="Describe what you did in this role..."
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Education -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h2 class="h5 mb-4">Education</h2>
-
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="schoolName" class="form-label">School Name</label>
-                  <input type="text" class="form-control" id="schoolName" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="degree" class="form-label">Degree / Major</label>
-                  <input type="text" class="form-control" id="degree" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="eduCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="eduCity" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="eduState" class="form-label">State</label>
-                  <input type="text" class="form-control" id="eduState" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="gradDate" class="form-label">Graduation Date</label>
-                  <input type="month" class="form-control" id="gradDate" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Skills -->
-          <div class="card shadow-sm mb-4">
-            <div class="card-body">
-              <h2 class="h5 mb-4">Skills</h2>
-
-              <div class="row g-3">
-                <div class="col-12">
-                  <label for="skills" class="form-label">Skills</label>
-                  <textarea
-                    class="form-control"
-                    id="skills"
-                    rows="4"
-                    placeholder="Example: HTML, CSS, Bootstrap, JavaScript, SQL, Python"
-                  ></textarea>
-                  <div class="form-text">You can separate skills with commas.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Create Resume Button -->
-          <div class="d-grid mb-5">
-            <button type="submit" class="btn btn-success btn-lg btn-lg">Create Resume</button>
-          </div>
-
-        </form>
-      </div>
     </div>
-  </div>
 
-  <!-- Bootstrap 5 JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>
